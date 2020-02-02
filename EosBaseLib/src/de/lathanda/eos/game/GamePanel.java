@@ -1,4 +1,4 @@
-﻿package de.lathanda.eos.game;
+package de.lathanda.eos.game;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

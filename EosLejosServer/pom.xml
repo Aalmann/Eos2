@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>de.lathanda.eos</groupId>
+    <artifactId>EosMavenParent</artifactId>
+    <version>1.1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>EosServer</artifactId>
+  <packaging>jar</packaging>
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.github.hypfvieh/dbus-java -->
+    <dependency>
+      <groupId>com.github.hypfvieh</groupId>
+      <artifactId>dbus-java</artifactId>
+      <version>2.7.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.openpnp/opencv the only one 
+      with older 2.4.11 version -->
+    <dependency>
+      <groupId>org.openpnp</groupId>
+      <artifactId>opencv</artifactId>
+      <version>3.4.2-1</version>
+      <!-- <version>2.4.11-2</version> -->
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+    <dependency>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+      <version>5.5.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.bdeneuter/lejos-ev3-api -->
+    <!-- <dependency>
+      <groupId>com.github.bdeneuter</groupId>
+      <artifactId>lejos-ev3-api</artifactId>
+      <version>0.9.1-beta</version>
+    </dependency>
+    -->
+    <dependency> 
+      <groupId>${project.groupId}</groupId>
+      <artifactId>ev3classes</artifactId> 
+      <version>${project.version}</version> 
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/eosserver_libs
+              </outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>eosserver_libs/</classpathPrefix>
+              <mainClass>
+                de.lathanda.eos.ev3.EosServer
+              </mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
