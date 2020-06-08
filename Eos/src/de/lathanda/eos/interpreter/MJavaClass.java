@@ -41,6 +41,8 @@ public class MJavaClass implements MType {
 			return checkAndCast(c, ((MObject)obj).getJavaObject());
 		} else if (c.isInstance(obj)) {
 			return obj;
+		} else if (obj instanceof Variable) {
+			return checkAndCast(c, ((Variable)obj).get());
 		} else if (c == String.class) {
 			return obj.toString();
 		}
