@@ -185,6 +185,10 @@ public class Machine implements AbstractMachine {
         Variable v = createInitVariable(variable, type);
         context.memory.put(variable, v);
     }
+    public void define(String variable, MType type) throws Exception {    	
+        Variable v = new Variable(type, variable);
+        context.memory.put(variable, v);
+    }
     public Variable createInitVariable(String name, MType type) throws Exception {
     	Variable v = new Variable(type, name);
         if (!type.isAbstract()) {
@@ -195,6 +199,7 @@ public class Machine implements AbstractMachine {
         }
         return v;
     }
+
     public void create(String variable, MType type, Object data) throws Exception {
         Variable v = new Variable(type, variable);
         v.set(data);
