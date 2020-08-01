@@ -56,7 +56,6 @@ public class TextField extends Rectangle {
         p.setFont(fontname, size);
         p.setTextSpacing(1, 1);
         p.setTextAlignment(vertical, horizontal);        
-        p.setLineColor(color);
         p.drawText(text, -width/2, -height/2, width, height);
     }
 

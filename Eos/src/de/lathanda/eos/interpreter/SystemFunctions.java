@@ -1,6 +1,5 @@
 package de.lathanda.eos.interpreter;
 
-import java.awt.Color;
 import java.util.Calendar;
 import java.util.Random;
 /**
@@ -10,22 +9,6 @@ import java.util.Random;
  */
 public abstract class SystemFunctions {
     private static final Random random = new Random();
-    public static Color colorFromRGBI(int r, int g, int b) {    	
-    	return new Color(ri(r,0,255), ri(g,0,255), ri(b,0,255));
-    }
-    private static int ri(int value, int min, int max) {
-    	if (value <= min) return min;
-    	if (value >= max) return max;
-    	return value;
-    }
-    public static Color colorFromRGBD(double r, double g, double b) {
-    	return new Color(rf(r,0f,1f), rf(g,0f,1f), rf(b,0f,1f));
-    }
-    private static float rf(double value, float min, float max) {
-    	if (value <= min) return min;
-    	if (value >= max) return max;
-    	return (float)value;
-    }
     public static int round(double z) {
         return (int)Math.round(z);
     }

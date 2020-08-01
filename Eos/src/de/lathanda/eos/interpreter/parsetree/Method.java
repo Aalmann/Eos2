@@ -5,7 +5,6 @@ import de.lathanda.eos.common.interpreter.ProgramUnit;
 import de.lathanda.eos.interpreter.Command;
 import de.lathanda.eos.interpreter.ReservedVariables;
 import de.lathanda.eos.interpreter.commands.CreateVariable;
-import de.lathanda.eos.interpreter.commands.DefineVariable;
 import de.lathanda.eos.interpreter.commands.LoadVariable;
 import de.lathanda.eos.interpreter.commands.StoreVariable;
 
@@ -49,7 +48,7 @@ public class Method extends Node implements ProgramUnit {
 	@Override
 	public void compile(ArrayList<Command> ops, boolean autoWindow) throws Exception {
 		for(Parameter p: parameters.getParameters()) {
-			ops.add(new DefineVariable(p.getName(), p.getType().getMType()));
+			ops.add(new CreateVariable(p.getName(), p.getType().getMType()));
 			ops.add(new StoreVariable(p.getName()));
 		}
 		if (returnType != null && !returnType.isVoid()) {

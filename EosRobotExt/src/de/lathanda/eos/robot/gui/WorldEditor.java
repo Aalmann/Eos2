@@ -35,6 +35,7 @@ import de.lathanda.eos.common.gui.Messages;
 import de.lathanda.eos.robot.World;
 import de.lathanda.eos.robot.World.IntRange;
 import de.lathanda.eos.robot.exceptions.RobotException;
+import de.lathanda.eos.robot.gui.WorldPanelOpenGLNoShader;
 import de.lathanda.eos.spi.RobotLanguage;
 import de.lathanda.eos.util.GuiToolkit;
 /**

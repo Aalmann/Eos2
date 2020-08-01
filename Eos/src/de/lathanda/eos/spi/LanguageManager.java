@@ -286,11 +286,13 @@ public class LanguageManager {
 	}
 
 	private static class Signature {
+		protected int args;
 		protected SystemType[] parameters;
 		protected SystemType ret;
 		protected String name;
 
 		protected void parseSignature(String value, int args) throws MissingTypeException {
+			this.args = args;
 			String[] signature = value.split(",");
 			name = signature[0];
 			parameters = new SystemType[args];

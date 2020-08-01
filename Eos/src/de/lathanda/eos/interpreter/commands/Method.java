@@ -6,7 +6,6 @@ import de.lathanda.eos.interpreter.Command;
 import de.lathanda.eos.interpreter.MObject;
 import de.lathanda.eos.interpreter.MType;
 import de.lathanda.eos.interpreter.Machine;
-import de.lathanda.eos.interpreter.Variable;
 import de.lathanda.eos.interpreter.exceptions.NullAccessException;
 
 /**
@@ -38,8 +37,6 @@ public class Method extends Command {
         	Object result;
         	if (target instanceof MObject) {
         		result = method.invoke(((MObject)target).getJavaObject(), args);
-        	} else if (target instanceof Variable) {
-        		result = method.invoke(((Variable)target).get(), args);
         	} else {
         		result = method.invoke(target, args);
         	}
