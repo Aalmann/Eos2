@@ -1,4 +1,5 @@
 #!/bin/bash
 
 mvn clean install
-mvn package appassembler:assemble
+mvn package 
+mvn appassembler:assemble --file Eoe/pom.xml

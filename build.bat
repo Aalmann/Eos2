@@ -1,2 +1,3 @@
 mvn clean install
-mvn package appassembler:assemble
+mvn package 
+mvn appassembler:assemble --file Eos/pom.xml
