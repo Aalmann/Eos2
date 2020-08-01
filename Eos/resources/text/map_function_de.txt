@@ -11,3 +11,4 @@ arcsin(1)                        = arcsin,real,real
 arccos(1)                        = arccos,real,real
 phi(2)                           = phi,real,real,real
 r(2)                             = r,real,real,real
+rgbfarbe(3)                      = colorFromRGBI,integer,integer,integer,color
