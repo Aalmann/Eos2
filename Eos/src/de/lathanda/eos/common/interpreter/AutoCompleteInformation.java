@@ -13,7 +13,7 @@ public interface AutoCompleteInformation extends Comparable<AutoCompleteInformat
    		 GuiToolkit.createSmallIcon("icons/element.png"),
    		 GuiToolkit.createSmallIcon("icons/code.png"),
     };
-	final static char[] PREFIX = {	'@','%','!','$','ยง', '&'};
+	final static char[] PREFIX = {	'@','%','!','$','ง', '&'};
 	final int METHOD   = 0;
 	final int PROPERTY = 1;
 	final int CLASS    = 2;
